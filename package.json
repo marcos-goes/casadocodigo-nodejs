@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/marcos-goes/casadocodigo-nodejs#readme",
   "dependencies": {
+    "ejs": "^2.5.5",
     "express": "^4.14.1"
   }
 }
