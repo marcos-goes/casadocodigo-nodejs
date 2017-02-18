@@ -1,17 +1,37 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <ul>
-    <li><a href="">Node.JS</a></li>
-    <li><a href="">AngularJS</a></li>
-    <li><a href="">MongoDB</a></li>
-    <li><a href="">Ruby on Rails</a></li>
-    <li><a href="">Python</a></li>
-  </ul>
-</body>
-</html>
+<% include ../includes/header.ejs %>
+
+    <!-- FINAL NAV -->
+    <div>
+        <div class ="container min-container">
+
+          <% if(salvo) { %>
+            <p class="alert alert-success">Livro salvo com sucesso!</p>
+          <% } %>
+
+            <h2 class="basic-title">Listagem de livros</h2>
+            <div class="well">
+                <table class="table table-condensed table-bordered table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <td><a href="">Código</a></td>
+                        <td><a href="">Título</a></td>
+                        <td><a href="">Preço</a></td>
+                        <td><a href="">Descrição</a></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <% livros.map(function(livro){ %>
+                          <tr>
+                              <td><%= livro.id %></td>
+                              <td><%= livro.titulo %></td>
+                              <td><%= livro.preco %></td>
+                              <td><p><%= livro.descricao %></p></td>
+                          </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+                <a href="/produtos/form" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Novo livro</a>
+            </div>
+        </div>
+    </div>
+<% include ../includes/footer.ejs %>
