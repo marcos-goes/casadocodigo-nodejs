@@ -1,0 +1,18 @@
+<% include ./includes/header.ejs %>
+
+<h1>HOME</h1>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  let socket = io()
+
+  socket.on('novaPromocao', (data) => {
+    console.log('Nova Promoçao: ')
+    console.log(data.mensagem)
+
+    alert(data.mensagem)
+  })
+</script>
+
+<% include ./includes/footer.ejs %>

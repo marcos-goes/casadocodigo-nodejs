@@ -8,7 +8,7 @@ ProdutoDao.prototype.listaTodos = function(callback){
 }
 */
 
-class ProdutoDao{
+class ProdutoDao {
 
   constructor(connection){
     this._connection = connection
@@ -16,6 +16,10 @@ class ProdutoDao{
 
   listaTodos(callback){
     this._connection.query('SELECT * FROM livros', callback)
+  }
+
+  buscaPorId(id, callback){
+    this._connection.query('SELECT * FROM livros WHERE id = ' + id, callback)
   }
 
   salva(livro, callback){

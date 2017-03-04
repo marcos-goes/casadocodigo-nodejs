@@ -1,12 +1,17 @@
 let mysql = require('mysql')
 
-function connectionFactory(){
+function connectionFactory(host, port, user, password, database){
+
+  if(process.env.NODE_ENV){
+    database = process.env.NODE_ENV
+  }
+
   return mysql.createConnection({
-    host: '0.0.0.0',
-    port: '3307',
-    user: 'root',
-    password: '',
-    database: 'casadocodigo'
+    host: host || '0.0.0.0',
+    port: port || '3307',
+    user: user || 'root',
+    password: password || '',
+    database: database || 'casadocodigo'
   })
 }
 

@@ -1,8 +1,14 @@
 <% include ../includes/header.ejs %>
-
+<% if(locals.validationErrors){ %>
+  <ul>
+    <% validationErrors.map(function(error){ %>
+      <li><%= error.msg %>
+    <% }) %>
+  </ul>
+<% } %>
 <div>
     <div class ="container min-container">
-        <h2 class="basic-title">Add</h2>
+        <h2 class="basic-title">Adiciona Livros</h2>
 
         <form action="/produtos" method="post" class="well" role="form">
             <div class="form-group">
